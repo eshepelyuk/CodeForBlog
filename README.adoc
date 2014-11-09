@@ -2,7 +2,7 @@
 
 Code samples used for http://eshepelyuk.github.io/[JK's blog] posts.
 
-http://eshepelyuk.github.io/2013/06/28/test-me-if-you-can-1.html/[Test Me If You Can #1 (Spring Framework)]::
+http://eshepelyuk.github.io/2013/06/28/test-me-if-you-can-1.html[Test Me If You Can #1 (Spring Framework)]::
 https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfYouCan1/[Code]
 
 

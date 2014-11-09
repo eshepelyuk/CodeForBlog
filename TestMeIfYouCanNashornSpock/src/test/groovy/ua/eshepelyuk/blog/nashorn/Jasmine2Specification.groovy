@@ -6,30 +6,20 @@ import spock.lang.Unroll
 
 class Jasmine2Specification extends Specification {
 
-    @Shared
-    def jasmineReport
-
-    @Shared
-    def specFile
+    @Shared def jasmineReport
 
     def setupSpec() {
         def specText = getMetaClass().getMetaProperty("SPEC").getProperty(null)
-
-        specFile = File.createTempFile("jasmineSpec", ".js")
-        specFile.withWriter { it << specText }
-
-        jasmineReport = JavaScriptRunner.run("/jasmine-runner.js", ["__script": specFile.canonicalPath])
-    }
-
-    def cleanupSpec() {
-        specFile.delete()
+        jasmineReport = JavaScriptRunner.run("/jasmine-runner.js"
+                , ["__jasmineSpec__": specText, "__jasmineSpecName__": "${this.class.simpleName}.js",
+                   "__scriptBaseDir__": Jasmine2Specification.class.getResource("/jasmine-2.0.2").toExternalForm()])
     }
 
     @Unroll
     def '#item.fullName'() {
         expect:
-        assert item.status == "passed" || item.status == "pending" , item.failedExpectations[0]?.stack
+        assert item.status == "passed" || item.status == "pending", item.failedExpectations[0]?.stack
         where:
-        item << jasmineReport.collect {it.value}
+        item << jasmineReport.collect { it.value }
     }
 }

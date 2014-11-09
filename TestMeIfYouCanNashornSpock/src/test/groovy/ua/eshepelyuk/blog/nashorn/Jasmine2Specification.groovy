@@ -15,10 +15,11 @@ class Jasmine2Specification extends Specification {
                    "__scriptBaseDir__": Jasmine2Specification.class.getResource("/jasmine-2.0.2").toExternalForm()])
     }
 
-    @Unroll def '#item.fullName'() {
+    @Unroll def '#specName'() {
         expect:
         assert item.status == "passed" || item.status == "pending", item.failedExpectations.collect {it.value}.collect{it.stack}.join("\n\n\n")
         where:
         item << jasmineReport.collect { it.value }
+        specName =(item.status != "pending" ? item.fullName : "IGNORED: $item.fullName")
     }
 }

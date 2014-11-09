@@ -11,14 +11,13 @@ class Jasmine2Specification extends Specification {
     def setupSpec() {
         def specText = getMetaClass().getMetaProperty("SPEC").getProperty(null)
         jasmineReport = JavaScriptRunner.run("/jasmine-runner.js"
-                , ["__jasmineSpec__": specText, "__jasmineSpecName__": "${this.class.simpleName}.js",
+                , ["__jasmineSpec__": specText, "__jasmineSpecName__": "${this.class.simpleName}.groovy",
                    "__scriptBaseDir__": Jasmine2Specification.class.getResource("/jasmine-2.0.2").toExternalForm()])
     }
 
-    @Unroll
-    def '#item.fullName'() {
+    @Unroll def '#item.fullName'() {
         expect:
-        assert item.status == "passed" || item.status == "pending", item.failedExpectations[0]?.stack
+        assert item.status == "passed" || item.status == "pending", item.failedExpectations.collect {it.value}.collect{it.stack}.join("\n\n\n")
         where:
         item << jasmineReport.collect { it.value }
     }

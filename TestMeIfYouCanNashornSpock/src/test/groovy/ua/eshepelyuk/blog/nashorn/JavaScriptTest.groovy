@@ -9,7 +9,9 @@ describe("suite1", function() {
     })
     it("spec12", function() {
         print("spec12");
+        expect(1).toBe(1);
         expect(1).toBe(2);
+        expect(1).toBe(3);
     })
 })
 

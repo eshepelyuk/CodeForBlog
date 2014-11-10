@@ -13,13 +13,13 @@ class Jasmine2Specification extends Specification {
         "__jasmineSpecName__": "${this.class.simpleName}.groovy",
         "__scriptBaseDir__"  : Jasmine2Specification.class.getResource("/jasmine-2.0.2").toExternalForm()
     ]
-    jasmineResults = JavaScriptRunner.run("/jasmine-runner.js", scriptParams)
+    jasmineResults = JavaScriptRunner.run("/jasmine2-runner.js", scriptParams)
   }
 
   def isPassed(def specRes) {specRes.status == "passed" || specRes.status == "pending"}
 
   def specErrorMsg(def specResult) {
-    item.failedExpectations.collect { it.value }
+    specResult.failedExpectations.collect { it.value }
       .collect {it.stack}.join("\n\n\n")
   }
 

@@ -5,6 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 class Jasmine2Specification extends Specification {
+
   @Shared def jasmineResults
 
   def setupSpec() {

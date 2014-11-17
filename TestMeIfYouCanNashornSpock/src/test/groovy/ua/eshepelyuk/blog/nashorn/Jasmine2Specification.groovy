@@ -12,9 +12,9 @@ class Jasmine2Specification extends Specification {
     def scriptParams = [
         "__jasmineSpec__"    : getMetaClass().getMetaProperty("SPEC").getProperty(null),
         "__jasmineSpecName__": "${this.class.simpleName}.groovy",
-        "__scriptBaseDir__"  : Jasmine2Specification.class.getResource("/jasmine-2.0.2").toExternalForm()
+        "__scriptBaseDir__"  : Jasmine2Specification.class.getResource("/").toExternalForm()
     ]
-    jasmineResults = JavaScriptRunner.run("/jasmine2-runner.js", scriptParams)
+    jasmineResults = JavaScriptRunner.run("/jasmine/jasmine2-runner.js", scriptParams)
   }
 
   def isPassed(def specRes) {specRes.status == "passed" || specRes.status == "pending"}

@@ -11,8 +11,7 @@ class Jasmine2Specification extends Specification {
   def setupSpec() {
     def scriptParams = [
         "__jasmineSpec__"    : getMetaClass().getMetaProperty("SPEC").getProperty(null),
-        "__jasmineSpecName__": "${this.class.simpleName}.groovy",
-        "__scriptBaseDir__"  : Jasmine2Specification.class.getResource("/").toExternalForm()
+        "__jasmineSpecName__": "${this.class.simpleName}.groovy"
     ]
     jasmineResults = JavaScriptRunner.run("/jasmine/jasmine2-runner.js", scriptParams)
   }

@@ -1,6 +1,6 @@
 var loadFromClassPath = function(path) {
   load(
-    Java.type("ua.eshepelyuk.blog.nashorn.Jasmine2Specification")
+    Java.type("ua.eshepelyuk.blog.Jasmine2Specification")
       .class.getResource(path).toExternalForm()
   );
 };

@@ -1,6 +1,6 @@
-package ua.eshepelyuk.blog.nashorn
+package js
 
-import org.intellij.lang.annotations.Language
+import ua.eshepelyuk.blog.Jasmine2Specification
 
 class MathUtilsTest extends Jasmine2Specification {
   //language="JavaScript 1.8"

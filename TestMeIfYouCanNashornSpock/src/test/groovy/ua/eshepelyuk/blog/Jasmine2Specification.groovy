@@ -1,8 +1,9 @@
-package ua.eshepelyuk.blog.nashorn
+package ua.eshepelyuk.blog
 
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
+import ua.eshepelyuk.blog.JavaScriptRunner
 
 class Jasmine2Specification extends Specification {
 

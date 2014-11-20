@@ -1,4 +1,4 @@
-package ua.eshepelyuk.blog.nashorn;
+package ua.eshepelyuk.blog;
 
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;

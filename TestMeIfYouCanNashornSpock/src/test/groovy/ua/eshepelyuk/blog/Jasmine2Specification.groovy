@@ -6,7 +6,6 @@ import spock.lang.Unroll
 import ua.eshepelyuk.blog.JavaScriptRunner
 
 class Jasmine2Specification extends Specification {
-
   @Shared def jasmineResults
 
   def setupSpec() {
@@ -14,7 +13,7 @@ class Jasmine2Specification extends Specification {
         "__jasmineSpec__"    : getMetaClass().getMetaProperty("SPEC").getProperty(null),
         "__jasmineSpecName__": "${this.class.simpleName}.groovy"
     ]
-    jasmineResults = JavaScriptRunner.run("/jasmine/jasmine2-runner.js", scriptParams)
+    jasmineResults = JavaScriptRunner.run("/jasmine/jasmine2-bootstrap.js", scriptParams)
   }
 
   def isPassed(def specRes) {specRes.status == "passed" || specRes.status == "pending"}

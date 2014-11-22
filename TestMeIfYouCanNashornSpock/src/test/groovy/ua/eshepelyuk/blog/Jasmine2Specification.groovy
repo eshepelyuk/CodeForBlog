@@ -5,7 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 import ua.eshepelyuk.blog.JavaScriptRunner
 
-class Jasmine2Specification extends Specification {
+abstract class Jasmine2Specification extends Specification {
   @Shared def jasmineResults
 
   def setupSpec() {

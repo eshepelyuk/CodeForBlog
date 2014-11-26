@@ -7,6 +7,4 @@ https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfYouCan1/[Source Co
 
 http://eshepelyuk.github.io/2014/11/26/-testing-jvm-javascript-jasmine-spock-nashorn.html[Testing JVM server-side JavaScript with Jasmine, Spock 
 and Nashorn]::
-https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfYouCanNashornSpock[Source Code
-]
-
+https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfYouCanNashornSpock[Source Code]

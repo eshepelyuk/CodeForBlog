@@ -5,6 +5,6 @@ Code samples used for http://eshepelyuk.github.io/[JK's blog] posts.
 http://eshepelyuk.github.io/2013/06/28/test-me-if-you-can-1.html[Test Me If You Can #1 (Spring Framework)]::
 https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfYouCan1/[Source Code]
 
-http://eshepelyuk.github.io/2014/11/26/-testing-jvm-javascript-jasmine-spock-nashorn.html[Testing JVM server-side JavaScript with Jasmine, Spock 
-and Nashorn]::
+http://eshepelyuk.github.io/2014/11/26/-testing-jvm-javascript-jasmine-spock-nashorn.html[Testing JVM server-side JavaScript with Jasmine, Spock and Nashorn]::
 https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfYouCanNashornSpock[Source Code]
+

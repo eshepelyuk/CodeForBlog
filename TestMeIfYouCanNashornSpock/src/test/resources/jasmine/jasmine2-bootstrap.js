@@ -4,9 +4,9 @@ var loadFromClassPath = function(path) {
 
 var window = this;
 
-loadFromClassPath("/jasmine/jasmine-2.1.2/jasmine.js");
+loadFromClassPath("/META-INF/resources/webjars/jasmine/2.1.3/jasmine.js");
 loadFromClassPath("/jasmine/jasmine2-html-stub.js");
-loadFromClassPath("/jasmine/jasmine-2.1.2/boot.js");
+loadFromClassPath("/META-INF/resources/webjars/jasmine/2.1.3/boot.js");
 load({script: __jasmineSpec__, name: __jasmineSpecName__});
 
 onload();

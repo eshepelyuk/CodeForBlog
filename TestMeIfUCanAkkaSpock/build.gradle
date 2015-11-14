@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "http://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+dependencies {
+    testCompile"org.codehaus.groovy:groovy-all:2.3.7",
+        "org.spockframework:spock-core:1.0-groovy-2.3-SNAPSHOT"
+}

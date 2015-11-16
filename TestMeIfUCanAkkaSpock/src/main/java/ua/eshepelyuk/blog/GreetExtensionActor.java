@@ -7,6 +7,7 @@ import java.util.Objects;
 public class GreetExtensionActor extends UntypedActor {
     @Override
     public void onReceive(Object message) throws Exception {
-        sender().tell(GreetExtension.KEY.apply(context().system()).greetWord() + " " + Objects.toString(message), self());
+        GreetExtension greetExtension = GreetExtension.KEY.apply(context().system());
+        sender().tell(greetExtension.greetWord() + " " + Objects.toString(message), self());
     }
 }

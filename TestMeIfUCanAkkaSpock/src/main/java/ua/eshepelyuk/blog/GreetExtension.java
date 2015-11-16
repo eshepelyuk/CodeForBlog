@@ -14,7 +14,7 @@ public class GreetExtension implements Extension {
 
     private final Random random;
 
-    protected ExtendedActorSystem actorSystem;
+    private final ExtendedActorSystem actorSystem;
 
     public GreetExtension(ExtendedActorSystem actorSystem) {
         this.actorSystem = actorSystem;

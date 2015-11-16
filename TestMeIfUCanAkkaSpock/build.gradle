@@ -6,17 +6,14 @@ targetCompatibility = '1.8'
 
 repositories {
     mavenCentral()
-
-    maven {
-        url "http://oss.sonatype.org/content/repositories/snapshots/"
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
 }
 
 dependencies {
-    testCompile"org.codehaus.groovy:groovy-all:2.3.7",
-        "org.spockframework:spock-core:1.0-groovy-2.3-SNAPSHOT"
+    compile "com.typesafe.akka:akka-actor_$akkaScalaVersion:$akkaVersion",
+        "com.typesafe.akka:akka-agent_$akkaScalaVersion:$akkaVersion",
+        "com.typesafe.akka:akka-slf4j_$akkaScalaVersion:$akkaVersion",
+        "com.typesafe.akka:akka-testkit_$akkaScalaVersion:$akkaVersion"
+
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4",
+        "cglib:cglib-nodep:3.1"
 }

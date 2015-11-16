@@ -12,7 +12,7 @@ class GreetExtensionActorTest extends Specification {
 
     def probe = new JavaTestKit(actorSystem)
 
-    def "actor should greet"() {
+    def "actor should greet via AKKA extension"() {
         given:
         def helloActor = actorSystem.actorOf(Props.create(GreetExtensionActor))
         when:
@@ -22,7 +22,7 @@ class GreetExtensionActorTest extends Specification {
         msg.endsWith("world") && GreetExtension.GREET_WORDS.any { msg.startsWith(it) }
     }
 
-    def "actor should greet with mocked AKKA extension"() {
+    def "actor should greet via mocked AKKA extension"() {
         given:
         def helloActor = actorSystem.actorOf(Props.create(GreetExtensionActor))
         and:

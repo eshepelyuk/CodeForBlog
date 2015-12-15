@@ -18,7 +18,7 @@ dependencies {
 mainClassName = 'ua.eshepelyuk.blog.Hello'
 
 docker {
-    url = "https://192.168.99.100:2376"
+    url = System.env.DOCKER_HOST.replaceAll("tcp", "https")
     javaApplication {
         tag = "eshepelyuk/hellodockergradle:latest"
     }

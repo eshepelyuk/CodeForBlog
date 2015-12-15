@@ -1,21 +1,11 @@
-apply plugin: 'groovy'
-apply plugin: 'application'
-apply plugin: 'com.bmuschko.docker-java-application'
-
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "com.bmuschko:gradle-docker-plugin:2.6.1"
-    }
+plugins {
+    id 'groovy'
+    id 'application'
+    id 'com.bmuschko.docker-java-application' version '2.6.1'
 }
 
 repositories {
     jcenter()
-    mavenCentral()
 }
 
 dependencies {
@@ -31,6 +21,6 @@ docker {
     url = "https://192.168.99.100:2376"
     javaApplication {
         maintainer = 'Evgeny Shepelyuk "eshepelyuk@gmail.com"'
-        tag = "${project.group}/${applicationName.toLowerCase()}:latest"
+        tag = "eshepelyuk/hellodockergradle:latest"
     }
 }

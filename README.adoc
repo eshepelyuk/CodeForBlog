@@ -11,5 +11,5 @@ https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfYouCanNashornSpock
 http://eshepelyuk.github.io/2015/12/16/akka-extensions-spock.html[Testing AKKA application with Spock]::
 https://github.com/eshepelyuk/CodeForBlog/tree/master/TestMeIfUCanAkkaSpock[Source Code]
 
-http://eshepelyuk.github.io/2015/12/15/jvm-microservice-sdkman-gradle.adoc[JVM microservices - JVM based application as Docker container]::
+http://eshepelyuk.github.io/2015/12/15/jvm-microservice-sdkman-gradle.html[JVM microservices - JVM based application as Docker container]::
 https://github.com/eshepelyuk/CodeForBlog/tree/master/HelloDockerGradle[Source Code]

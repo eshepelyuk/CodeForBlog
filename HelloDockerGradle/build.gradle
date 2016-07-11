@@ -1,7 +1,7 @@
 plugins {
     id 'groovy'
     id 'application'
-    id 'com.bmuschko.docker-java-application' version '2.6.1'
+    id 'com.bmuschko.docker-java-application' version '3.0.1'
 }
 
 repositories {
@@ -18,7 +18,8 @@ dependencies {
 mainClassName = 'ua.eshepelyuk.blog.Hello'
 
 docker {
-    url = System.env.DOCKER_HOST.replaceAll("tcp", "https")
+    url = System.env.DOCKER_HOST
+    certPath = new File(System.env.DOCKER_CERT_PATH)    
     javaApplication {
         tag = "eshepelyuk/hellodockergradle:latest"
     }

@@ -10,7 +10,7 @@ zuul:
   routes:
     qwerty:
       path: /qwerty/**
-      url: http://localhost:9090
+      url: http://resource:9090
 #    uaa:
 #      path: /uaa/**
 #      url: http://localhost:8080
@@ -25,11 +25,8 @@ security:
     client:
       client-id: zuul
       client-secret: zuul123
-      access-token-uri: http://localhost:8080/uaa/oauth/token
-      user-authorization-uri: http://localhost:8080/uaa/oauth/authorize
-
-#      access-token-uri: http://localhost:7070/zuul/uaa/oauth/token
-#      user-authorization-uri: http://localhost:7070/zuul/uaa/oauth/authorize
+      access-token-uri: http://192.168.99.100:8080/uaa/oauth/token
+      user-authorization-uri: http://192.168.99.100:8080/uaa/oauth/authorize
 
 logging:
   level:

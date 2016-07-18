@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  zuul:
+    image: eshepelyuk/zuul
+    ports:
+      - "7070:7070"
+    volumes:
+      - /dev/urandom:/dev/random
+
+  auth:
+    image: eshepelyuk/auth
+    ports:
+      - "8080:8080"
+    volumes:
+      - /dev/urandom:/dev/random
+
+  resource:
+    image: eshepelyuk/resource
+    volumes:
+      - /dev/urandom:/dev/random

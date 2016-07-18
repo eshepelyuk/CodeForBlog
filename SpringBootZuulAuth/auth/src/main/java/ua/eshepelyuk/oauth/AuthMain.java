@@ -62,7 +62,7 @@ public class AuthMain extends AuthorizationServerConfigurerAdapter {
                 .authorizedGrantTypes("password", "authorization_code")
                 .scopes("web")
                 .resourceIds("qwerty")
-                .redirectUris("http://localhost:7070/zuul/login")
+                .redirectUris("http://192.168.99.100:7070/zuul/login")
                 .autoApprove(true)
         ;
     }

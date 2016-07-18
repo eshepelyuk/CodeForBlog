@@ -19,7 +19,7 @@ mainClassName = 'ua.eshepelyuk.blog.Hello'
 
 docker {
     url = System.env.DOCKER_HOST
-    certPath = new File(System.env.DOCKER_CERT_PATH)    
+    certPath = new File(System.env.DOCKER_CERT_PATH)
     javaApplication {
         tag = "eshepelyuk/hellodockergradle:latest"
     }

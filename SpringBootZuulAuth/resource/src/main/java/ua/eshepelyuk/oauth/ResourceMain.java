@@ -46,7 +46,8 @@ public class ResourceMain extends ResourceServerConfigurerAdapter {
             .antMatchers("/user").hasAnyRole("UUU")
             .antMatchers("/admin").hasAnyRole("AAA")
             .anyRequest().permitAll()
-            .and().sessionManagement().sessionCreationPolicy(STATELESS);
+            .and()
+            .sessionManagement().sessionCreationPolicy(STATELESS);
     }
 
     @Override

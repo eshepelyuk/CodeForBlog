@@ -29,8 +29,8 @@ public class AuthMain extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(tokenStore())
-            .accessTokenConverter(accessTokenConverter())
-            .authenticationManager(authenticationManager2)
+                .accessTokenConverter(accessTokenConverter())
+                .authenticationManager(authenticationManager2)
         ;
     }
 
@@ -58,11 +58,12 @@ public class AuthMain extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-            .withClient("zuul").secret("zuul123")
-            .authorizedGrantTypes("password")
-            .scopes("web")
-            .resourceIds("qwerty")
-            .autoApprove(true)
+                .withClient("zuul").secret("zuul123")
+                .authorizedGrantTypes("password", "authorization_code")
+                .scopes("web")
+                .resourceIds("qwerty")
+                .redirectUris("http://localhost:7070/zuul/login")
+                .autoApprove(true)
         ;
     }
 

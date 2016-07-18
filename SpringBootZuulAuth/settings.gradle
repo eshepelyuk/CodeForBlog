@@ -1,2 +1,2 @@
-rootProject.name = "spring-oauth-zuul"
+rootProject.name = "spring-zuul-auth"
 include "zuul", "auth", "resource"

@@ -1,3 +1,7 @@
+nas:
+  resourceHost: http://resource:9090
+  authHost: http://192.168.99.100:8080
+
 server:
   port: 7070
   context-path: /zuul
@@ -10,7 +14,7 @@ zuul:
   routes:
     qwerty:
       path: /qwerty/**
-      url: http://resource:9090
+      url: ${nas.resourceHost}
 #    uaa:
 #      path: /uaa/**
 #      url: http://localhost:8080
@@ -25,8 +29,8 @@ security:
     client:
       client-id: zuul
       client-secret: zuul123
-      access-token-uri: http://192.168.99.100:8080/uaa/oauth/token
-      user-authorization-uri: http://192.168.99.100:8080/uaa/oauth/authorize
+      access-token-uri: ${nas.authHost}/uaa/oauth/token
+      user-authorization-uri: ${nas.authHost}/uaa/oauth/authorize
 
 logging:
   level:

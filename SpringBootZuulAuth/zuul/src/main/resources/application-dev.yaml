@@ -1,0 +1,3 @@
+nas:
+  resourceHost: http://localhost:9090
+  authHost: http://localhost:8080

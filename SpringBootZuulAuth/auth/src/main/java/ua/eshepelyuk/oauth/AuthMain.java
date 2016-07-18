@@ -2,6 +2,7 @@ package ua.eshepelyuk.oauth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -55,6 +56,10 @@ public class AuthMain extends AuthorizationServerConfigurerAdapter {
         return defaultTokenServices;
     }
 
+
+    @Value("${nas.zuulClientRedirectUrl}")
+    private String zuulClientRedirectUrl;
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
@@ -62,7 +67,7 @@ public class AuthMain extends AuthorizationServerConfigurerAdapter {
                 .authorizedGrantTypes("password", "authorization_code")
                 .scopes("web")
                 .resourceIds("qwerty")
-                .redirectUris("http://192.168.99.100:7070/zuul/login")
+                .redirectUris(zuulClientRedirectUrl)
                 .autoApprove(true)
         ;
     }

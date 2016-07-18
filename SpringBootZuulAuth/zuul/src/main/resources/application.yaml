@@ -16,6 +16,8 @@ security:
   oauth2:
     resource:
       token-info-uri: http://ya.ru
+      jwt:
+        key-value: 123
     client:
       client-id: zuul
       client-secret: zuul123

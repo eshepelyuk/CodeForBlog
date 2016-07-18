@@ -11,11 +11,15 @@ zuul:
     qwerty:
       path: /qwerty/**
       url: http://localhost:9090
+#    uaa:
+#      path: /uaa/**
+#      url: http://localhost:8080
+#      stripPrefix: false
 
 security:
   oauth2:
     resource:
-      token-info-uri: http://ya.ru
+      token-info-uri: http://none.no
       jwt:
         key-value: 123
     client:
@@ -23,6 +27,9 @@ security:
       client-secret: zuul123
       access-token-uri: http://localhost:8080/uaa/oauth/token
       user-authorization-uri: http://localhost:8080/uaa/oauth/authorize
+
+#      access-token-uri: http://localhost:7070/zuul/uaa/oauth/token
+#      user-authorization-uri: http://localhost:7070/zuul/uaa/oauth/authorize
 
 logging:
   level:

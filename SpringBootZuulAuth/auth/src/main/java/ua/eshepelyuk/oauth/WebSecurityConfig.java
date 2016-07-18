@@ -19,13 +19,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.csrf().ignoringAntMatchers("/**").and()
-            .authorizeRequests().antMatchers("/oauth/access_token").permitAll();
-    }
-
-    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
             .withUser("admin").password("admin123").roles("UUU", "AAA")

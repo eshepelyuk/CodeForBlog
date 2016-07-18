@@ -1,0 +1,8 @@
+*.iml
+.idea
+swagger.json
+document.html
+target
+.settings
+.project
+.classpath

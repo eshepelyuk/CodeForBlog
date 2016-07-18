@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: qwerty
+
+server:
+  port: 9090
+
+security:
+  oauth2:
+    client:
+      clientId: qwerty
+      clientSecret: qwerty123
+      scope:
+        - user
+        - admin
+    resource:
+      userInfoUri: http://no.io
+      id: qwerty
+
+logging:
+  level:
+    org.springframework.security: DEBUG

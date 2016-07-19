@@ -40,6 +40,7 @@ subprojects {
         certPath = new File(System.getenv('DOCKER_CERT_PATH').toString())
         javaApplication {
             tag = "eshepelyuk/${project.name}:latest"
+            baseImage = 'anapsix/alpine-java:jre8'
         }
     }
 }

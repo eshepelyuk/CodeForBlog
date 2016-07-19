@@ -1,2 +1,2 @@
 nas:
-  zuulClientRedirectUrl: "http://localhost:7070/login"
+  zuulClientRedirectUrl: http://localhost:7070/login

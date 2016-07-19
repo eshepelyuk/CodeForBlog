@@ -31,21 +31,13 @@ subprojects {
     }
 
     dependencies {
-        compile 'org.springframework.boot:spring-boot-starter',
-            'org.springframework.boot:spring-boot-starter-web',
-            'org.springframework.boot:spring-boot-starter-security'
-
-
         compile 'org.springframework.cloud:spring-cloud-starter-zuul'
-        compile 'org.springframework.cloud:spring-cloud-security'
-        compile 'org.springframework.security.oauth:spring-security-oauth2'
-
-        compile group: 'org.springframework.security', name: 'spring-security-jwt'
+        compile 'org.springframework.cloud:spring-cloud-starter-oauth2'
     }
 
     docker {
         url = System.env.DOCKER_HOST
-        certPath = new File(System.getenv('DOCKER_CERT_PATH'))
+        certPath = new File(System.getenv('DOCKER_CERT_PATH').toString())
         javaApplication {
             tag = "eshepelyuk/${project.name}:latest"
         }

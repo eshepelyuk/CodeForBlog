@@ -4,7 +4,6 @@ nas:
 
 server:
   port: 7070
-  context-path: /zuul
 
 spring:
   application:

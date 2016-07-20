@@ -1,8 +1,7 @@
-package ua.eshepelyuk.oauth;
+package ua.eshepelyuk.resource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,13 +23,13 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableResourceServer
 public class ResourceMain extends ResourceServerConfigurerAdapter {
 
-    @RequestMapping(method = RequestMethod.GET, path = "/user")
-    public String user() {
+    @RequestMapping(method = RequestMethod.GET, path = "/player")
+    public String player() {
         return "Hello User";
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/admin")
-    public String admin() {
+    @RequestMapping(method = RequestMethod.GET, path = "/manager")
+    public String manager() {
         return "Hello Admin";
     }
 
@@ -39,22 +38,21 @@ public class ResourceMain extends ResourceServerConfigurerAdapter {
         return "Hello Anon";
     }
 
-
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/user").hasAnyRole("UUU")
-            .antMatchers("/admin").hasAnyRole("AAA")
-            .anyRequest().permitAll()
-            .and()
-            .sessionManagement().sessionCreationPolicy(STATELESS);
+                .antMatchers("/player", "/player/**").hasAuthority("PLAYER")
+                .antMatchers("/manager", "/manager/**").hasAuthority("MANAGER")
+                .antMatchers("/anon").permitAll()
+                .and()
+                .sessionManagement().sessionCreationPolicy(STATELESS);
     }
 
     @Override
     public void configure(ResourceServerSecurityConfigurer config) {
         config.tokenServices(tokenServices())
-            .resourceId("qwerty")
-            .stateless(true);
+                .resourceId("qwerty")
+                .stateless(true);
     }
 
     @Bean

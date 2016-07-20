@@ -1,10 +1,11 @@
-package ua.eshepelyuk.oauth;
+package ua.eshepelyuk.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.stereotype.Component;
 
@@ -21,9 +22,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-            .withUser("admin").password("admin123").roles("UUU", "AAA")
+            .withUser("manager").password("manager").authorities("MANAGER", "PLAYER")
             .and()
-            .withUser("user").password("user123").roles("UUU");
+            .withUser("player").password("player").authorities("PLAYER");
         ;
     }
 }

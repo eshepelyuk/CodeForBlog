@@ -45,7 +45,7 @@ subprojects {
     }
 }
 project(':zuul') {
-    mainClassName = "ua.eshepelyuk.oauth.ZuulMain"
+    mainClassName = "ua.eshepelyuk.zuul.ZuulMain"
     docker {
         javaApplication {
             port = 7070
@@ -54,7 +54,7 @@ project(':zuul') {
 }
 
 project(':auth') {
-    mainClassName = 'ua.eshepelyuk.oauth.AuthMain'
+    mainClassName = 'ua.eshepelyuk.auth.AuthMain'
     docker {
         javaApplication {
             port = 8080
@@ -63,6 +63,6 @@ project(':auth') {
 }
 
 project(':resource') {
-    mainClassName = "ua.eshepelyuk.oauth.ResourceMain"
+    mainClassName = "ua.eshepelyuk.resource.ResourceMain"
 }
 

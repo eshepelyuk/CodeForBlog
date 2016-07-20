@@ -12,7 +12,7 @@ spring:
 zuul:
   routes:
     qwerty:
-      path: /qwerty/**
+      path: /profile/**
       url: ${nas.resourceHost}
 #    uaa:
 #      path: /uaa/**
@@ -28,8 +28,8 @@ security:
     client:
       client-id: zuul
       client-secret: zuul123
-      access-token-uri: ${nas.authHost}/uaa/oauth/token
-      user-authorization-uri: ${nas.authHost}/uaa/oauth/authorize
+      access-token-uri: ${nas.authHost}/auth/oauth/token
+      user-authorization-uri: ${nas.authHost}/auth/oauth/authorize
 
 logging:
   level:

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/qwerty/**").authenticated()
+        http.authorizeRequests().antMatchers("/profile/**").authenticated()
                 .anyRequest().permitAll();
     }
 }

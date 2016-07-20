@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +14,16 @@ import java.io.IOException;
 
 @SpringBootApplication
 @EnableZuulProxy
+@RestController
 public class ZuulMain {
+
+    @RequestMapping(method = RequestMethod.GET, path = "/loggout")
+    public String loggout() {
+        return  "<html><body>" +
+            "<form action=/logout method=POST><input type=submit value=logoutHere></form>" +
+            "<form action=http://localhost:8080/auth/logout method=POST><input type=submit value=logoutThere></form>" +
+            "<body></html>";
+    }
 
     @Bean
     public Filter corsFilter() {

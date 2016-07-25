@@ -1,6 +1,6 @@
 nas:
   resourceHost: http://resource:9090
-  authHost: http://192.168.99.100:8080
+  authHost: http://192.168.99.100:8080/auth
 
 server:
   port: 7070
@@ -28,9 +28,10 @@ security:
     client:
       client-id: zuul
       client-secret: zuul123
-      access-token-uri: ${nas.authHost}/auth/oauth/token
-      user-authorization-uri: ${nas.authHost}/auth/oauth/authorize
-
+      access-token-uri: ${nas.authHost}/oauth/token
+      user-authorization-uri: ${nas.authHost}/oauth/authorize
+      use-current-uri: false
+      pre-established-redirect-uri: http://192.168.99.100:7070/login
 logging:
   level:
     org.springframework.security: DEBUG

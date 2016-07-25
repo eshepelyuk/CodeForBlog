@@ -19,7 +19,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 @EnableAuthorizationServer
 public class AuthMain extends AuthorizationServerConfigurerAdapter {
 
@@ -56,10 +55,6 @@ public class AuthMain extends AuthorizationServerConfigurerAdapter {
         return defaultTokenServices;
     }
 
-
-    @Value("${nas.zuulClientRedirectUrl}")
-    private String zuulClientRedirectUrl;
-
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
@@ -67,7 +62,6 @@ public class AuthMain extends AuthorizationServerConfigurerAdapter {
                 .authorizedGrantTypes("password", "authorization_code")
                 .scopes("web")
                 .resourceIds("qwerty")
-                .redirectUris(zuulClientRedirectUrl)
                 .autoApprove(true)
         ;
     }

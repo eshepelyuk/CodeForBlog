@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-        http.csrf().ignoringAntMatchers("/logout")
+        http.csrf().ignoringAntMatchers("/logout", "/oauth/token")
                 .and().logout().deleteCookies("JSESSIOND").invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout", HttpMethod.GET.name()));
     }

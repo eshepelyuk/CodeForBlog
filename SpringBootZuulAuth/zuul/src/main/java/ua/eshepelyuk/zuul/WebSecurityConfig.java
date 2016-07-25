@@ -27,11 +27,11 @@ import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
 @Component
-@EnableOAuth2Sso
+//@EnableOAuth2Sso
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private DefaultTokenServices tokenService;
+//    @Autowired
+//    private DefaultTokenServices tokenService;
 
     @Value("${nas.authHost}")
     private String authHost;
@@ -45,12 +45,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .clearAuthentication(true).deleteCookies("JSESSIONID").invalidateHttpSession(true)
                     .logoutSuccessUrl(authHost + "/logout")
                     .addLogoutHandler((request, response, authentication) -> {
-                        boolean res = tokenService.revokeToken(((OAuth2AuthenticationDetails) authentication.getDetails()).getTokenValue());
-                        LOGGER.debug("Revoke Token on logout result={}", res);
+//                        boolean res = tokenService.revokeToken(((OAuth2AuthenticationDetails) authentication.getDetails()).getTokenValue());
+//                        LOGGER.debug("Revoke Token on logout result={}", res);
                     })
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/profile/**").authenticated()
+//                    .antMatchers("/profile/**").authenticated()
                     .anyRequest().permitAll()
                 .and().headers().addHeaderWriter(new HeaderWriter() {
             @Override

@@ -8,6 +8,19 @@ resources:
 jobs:
   - name: HellDockerGradle
     plan:
-      - get: CodeForBlog 
+      - get: CodeForBlog
+      - task: chmod
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: frekele/java
+              tag: jdk8
+          inputs:
+            - name: CodeForBlog
+          run:
+            path: chmod
+            args: ['+x', 'CodeForBlog/HelloDockerGradle/gradlew']
       - task: build
         file: CodeForBlog/HelloDockerGradle/ci/build.yml 

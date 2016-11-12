@@ -10,4 +10,4 @@ jobs:
     plan:
       - get: CodeForBlog 
       - task: build
-        file: CodeForBlog/HelloDockerGradle/build.yml 
+        file: CodeForBlog/HelloDockerGradle/ci/build.yml 

@@ -10,11 +10,4 @@ jobs:
     plan:
       - get: CodeForBlog 
       - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source: {repository: frekele/java, tag: jdk8}
-          run:
-            path: ls
-            args: ["-la"]
+        file: CodeForBlog/HelloDockerGradle/build.yml 

@@ -11,5 +11,7 @@ inputs:
   - name: CodeForBlog
 
 run:
-  path: CodeForBlog/HelloDockerGradle/gradlew
-  args: ['--version']
+  path: ls
+  args: ['-la', 'CodeForBlog/HelloDockerGradle']
+  #  path: CodeForBlog/HelloDockerGradle/gradlew
+  #args: ['--version']

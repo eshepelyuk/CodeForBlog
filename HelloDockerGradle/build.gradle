@@ -22,6 +22,6 @@ docker {
     certPath = new File(System.env.DOCKER_CERT_PATH)
     javaApplication {
         tag = "eshepelyuk/hellodockergradle:latest"
-	baseImage = 'anapsix/alpine-java:8'
+        baseImage = 'anapsix/alpine-java:8'
     }
 }

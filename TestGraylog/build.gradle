@@ -1,0 +1,12 @@
+plugins {
+    id 'groovy'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'de.siegmar:logback-gelf:1.0.2'
+    compile 'de.appelgriepsch.logback:logback-gelf-appender:1.2.1'
+}

@@ -1,9 +1,9 @@
 <configuration>
 
     <appender name="GELF" class="de.appelgriepsch.logback.GelfAppender">
-        <server>graylog.app</server>
+        <server>${GRAYLOG_HOST}</server>
         <port>12201</port>
-        <hostName>localhost</hostName>
+        <hostName>${GRAYLOG_SOURCE}</hostName>
         <protocol>UDP</protocol>
         <includeSource>false</includeSource>
         <includeMDC>true</includeMDC>
@@ -15,20 +15,15 @@
         </layout>
     </appender>
 
-    <!---->
-    <!--<appender name="GELF" class="de.siegmar.logbackgelf.GelfUdpAppender">-->
-    <!--<graylogHost>graylog.app</graylogHost>-->
-    <!--<graylogPort>12201</graylogPort>-->
-    <!--</appender>-->
-
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%date{ISO8601} %-5level - %msg%n</pattern>
+            <pattern>%date{ISO8601} %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <root level="INFO">
-        <appender-ref ref="STDOUT"/>
+    <logger name="ua.eshepelyuk">
         <appender-ref ref="GELF"/>
-    </root>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
 </configuration>

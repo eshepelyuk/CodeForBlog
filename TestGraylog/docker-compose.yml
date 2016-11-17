@@ -1,10 +1,13 @@
 version: '2'
 services:
+  
   mongo:
     image: "mongo:3"
+  
   elasticsearch:
     image: "elasticsearch:2"
     command: "elasticsearch -Des.cluster.name='graylog'"
+  
   graylog:
     image: graylog2/server:2.1.2-1
     environment:
@@ -20,4 +23,16 @@ services:
       - "1514/udp:1514/udp"
     volumes:
       - "/usr/share/graylog/data"
+  
+  graylog-test-docker:
+    image: eshepelyuk/graylog-test
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://graylog.app:12201
 
+  graylog-test-logback:
+    image: eshepelyuk/graylog-test
+    environment:
+      GRAYLOG_HOST: graylog.app
+      GRAYLOG_SOURCE: eshepelyuk

@@ -1,12 +1,63 @@
-plugins {
-    id 'groovy'
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.3'
+    }
 }
 
-repositories {
-    jcenter()
+allprojects {
+    apply plugin: 'groovy'
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        compile 'org.codehaus.groovy:groovy:2.4.7'
+        compile 'de.appelgriepsch.logback:logback-gelf-appender:1.2.1'
+    }
 }
 
-dependencies {
-    compile 'de.siegmar:logback-gelf:1.0.2'
-    compile 'de.appelgriepsch.logback:logback-gelf-appender:1.2.1'
+project(':docker') {
+    apply plugin: 'application'
+    apply plugin: 'com.bmuschko.docker-java-application'
+
+    dependencies {
+        compile project(':')
+    }
+
+    mainClassName = 'ua.eshepelyuk.GraylogTestDocker'
+    docker {
+        url = System.getenv("DOCKER_HOST") ?: "unix:///var/run/docker.sock"
+        if (System.getenv('DOCKER_CERT_PATH')) {
+            certPath = new File(System.getenv('DOCKER_CERT_PATH').toString())
+        }
+        javaApplication {
+            tag = "eshepelyuk/graylog-test-docker"
+            baseImage = 'anapsix/alpine-java:8'
+        }
+    }
+}
+
+project(':logback') {
+    apply plugin: 'application'
+    apply plugin: 'com.bmuschko.docker-java-application'
+
+    dependencies {
+        compile project(':')
+    }
+
+    mainClassName = 'ua.eshepelyuk.GraylogTestLogback'
+    docker {
+        url = System.getenv("DOCKER_HOST") ?: "unix:///var/run/docker.sock"
+        if (System.getenv('DOCKER_CERT_PATH')) {
+            certPath = new File(System.getenv('DOCKER_CERT_PATH').toString())
+        }
+        javaApplication {
+            tag = "eshepelyuk/graylog-test-logback"
+            baseImage = 'anapsix/alpine-java:8'
+        }
+    }
 }

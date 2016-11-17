@@ -14,6 +14,6 @@ class GraylogTest {
             }
         }
         Thread.sleep(10000)
-        log.info("finished logging cnd: $num")
+        log.info("finished logging cnt: $num")
     }
 }
